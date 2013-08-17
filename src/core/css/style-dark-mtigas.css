@@ -1,0 +1,112 @@
+.body {
+	min-width: 320px;
+	min-height: 240px;
+	width: 100%;
+	background-color: #151520;
+	overflow: hidden;
+}
+div#bubble {
+	position:absolute;
+	width: auto;
+	height: auto;
+	margin: 0 0 -6px 0;
+	background: #151520;
+  border-radius: none;
+	color: #fff;
+	padding: 0;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+div#bubble #loginForm {
+	width: 710px;
+}
+div#bubble div#info {
+	background: #fff;
+	color: #000;
+}
+div#bubble {
+	background: #151520;
+}
+div#bubble h1 {
+	height: 20px;
+	margin-bottom: 6px;
+	padding: 1px 0 0 2px;
+}
+ #buddyWrapper {
+	background: #151520;
+	color: #fff;
+	z-index: 4;
+	height: 100%;
+}
+#conversationTag {
+	color: #000;
+}
+.buddy {
+	font-family: 'Lucida Grande', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+#conversationInfo {
+	font-family: 'Lucida Grande', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	margin: 0 0 0 8px;
+}
+ #conversationInfo .conversationName {
+	color: #000;
+}
+@media all and (max-width: 549px)	{
+	#conversationInfo #groupConversation {
+		display: none;
+	}
+}
+#conversationWrapper {
+	width:100%;
+	height: 100%;
+  background: #151520;
+  color: #fff;
+}
+#conversationWindow {
+	font-family: 'Lucida Grande', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	border-radius: 3px;
+	color: #000;
+}
+.line1, .line2, .line3 {
+	padding: 0 120px 0 4px;
+	color: #fff;
+	box-shadow: none !important;
+	border: none !important;
+}
+.line1:last-child, .line2:last-child, .line3:last-child, .userJoin:last-child, .userLeave:last-child {
+	margin-bottom: 110px !important;
+}
+.line1:after, .line2:after, .line3:after {
+	content: none !important;
+	position: inherit !important;
+	top: 0 !important;
+	border: none !important;
+}
+#userInput {
+	padding: 0 140px 0 0;
+}
+#userInputText {
+	padding: 8px;
+	height: 16px;
+	width: 100%;
+	margin: 4px;
+	font-family: 'Lucida Grande', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+	float: left;
+	background: #fafafa !important;
+	color: #000 !important;
+}
+#userInputSend {
+	height: 33px;
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+
+	padding: 0;
+	top: 4px
+}
+.userJoin, .userLeave {
+	color: #FFF;
+}
