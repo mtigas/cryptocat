@@ -369,18 +369,41 @@ Cryptocat.addToConversation = function(message, sender, conversation, type) {
 		message = addLinks(message)
 		message = addEmoticons(message)
 	}
+
+	/* generate an ID (to be set as attr on message <span>)
+   * so we can perform modifications like emojify.  */
+	var timestamp = currentTime(true);
+	var sha256 = CryptoJS.algo.SHA256.create();
+	sha256.update(CryptoJS.enc.Latin1.parse(message));
+	sha256.update(CryptoJS.enc.Latin1.parse(timestamp));
+	var id = sha256.finalize().toString(CryptoJS.enc.Hex);
+
 	message = message.replace(/:/g, '&#58;')
 	message = Mustache.render(Cryptocat.templates.message, {
 		lineDecoration: lineDecoration,
 		sender: shortenString(sender, 16),
-		currentTime: currentTime(true),
-		message: message
+		currentTime: timestamp,
+		message: message,
+    id: id
 	})
+
 	if (type !== 'composing') {
 		conversations[conversation] += message
 	}
 	if (conversation === currentConversation) {
 		$('#conversationWindow').append(message)
+		if (type === 'message') {
+			emojify.setConfig({
+				emoticons_enabled: true,
+				people_enabled: true,
+				nature_enabled: true,
+				objects_enabled: true,
+				places_enabled: true,
+				symbols_enabled: true,
+				only_crawl_id: id
+			});
+			emojify.run();
+		}
 		$('.line' + lineDecoration).last().animate({'top': '0', 'opacity': '1'}, 100)
 		bindTimestamps()
 		scrollDownConversation(400, true)
